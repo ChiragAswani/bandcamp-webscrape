@@ -9,7 +9,7 @@ const fetchData = async (artistUrl) => {
   if (response.status === 200) {
     const $ = cheerio.load(response.data);
     
-    const registeredPlatforms = '';
+    let registeredPlatforms = '';
     for (let p = 0; p < platforms.length; p++) {
       const platform = platforms[p];
       let platformUrl = '';
@@ -28,7 +28,7 @@ const fetchData = async (artistUrl) => {
       }
     }
 
-    console.log(`${platformUrl}registeredPlatforms`)
+    console.log(`${artistUrl}${registeredPlatforms}`)
   }
 }).catch(error => {
   console.log('Error fetching the webpage:', error.message);
